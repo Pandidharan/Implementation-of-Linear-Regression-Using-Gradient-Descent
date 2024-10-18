@@ -8,10 +8,29 @@ To write a program to predict the profit of a city using the linear regression m
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-1.Import the required library and read the dataframe.
-2.Write a function computeCost to generate the cost function.
-3.Perform iterations og gradient steps with learning rate.
-4.Plot the Cost function using Gradient Descent and generate the required graph.
+1. **Import Libraries**: Import necessary libraries such as `numpy`, `pandas`, and `StandardScaler` from `sklearn.preprocessing` for scaling the data.
+
+2. **Define Linear Regression Function**: Implement the `linear_regression()` function:
+   - Add a column of ones to the input data (`X1`) to account for the intercept term.
+   - Initialize the parameter vector `theta` with zeros.
+   - Perform gradient descent:
+     - Compute the predictions by multiplying the input features with `theta`.
+     - Calculate the error as the difference between predictions and actual values.
+     - Update `theta` using the gradient descent formula.
+
+3. **Load Dataset**: Load the `50_Startups.csv` dataset using `pandas`. Extract the input features (`X`) and output labels (`y`).
+
+4. **Convert Data to Floats**: Convert the input features `X` and output `y` to floating-point numbers for scaling and computations.
+
+5. **Scale the Features and Target**: Use `StandardScaler` to scale the input features (`X1_Scaled`) and the output target (`Y1_Scaled`) to normalize the data for gradient descent optimization.
+
+6. **Train the Linear Regression Model**: Call the `linear_regression()` function with scaled data (`X1_Scaled` and `Y1_Scaled`), and return the optimized parameter vector `theta`.
+
+7. **Prepare New Data for Prediction**: Define a new data point (`new_data`), reshape it, and scale it using the `StandardScaler`.
+
+8. **Make Prediction**: Use the learned `theta` to predict the output for the new scaled input data by calculating the dot product of the input with `theta`. Then, inverse-transform the prediction to get the original scale value.
+
+9. **Display the Prediction**: Print the predicted value after inverse transforming the result back to its original scale.
 
 ## Program:
 ```
